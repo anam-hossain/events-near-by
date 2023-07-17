@@ -24,7 +24,8 @@ const hash = ngeohash.encode(latitude, longitude);
 
 const searchParams = {
   geoPoint: hash,
-  size: 10,
+  radius: 20,
+  size: 50,
 };
 
 // Export events to a CSV file

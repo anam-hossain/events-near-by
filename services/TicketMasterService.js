@@ -25,7 +25,7 @@ class EventService {
       console.log('No events found to export.');
       return;
     }
-    console.log(events)
+
     try {
       const fields = ['Event', 'Date', 'URL', 'Image', 'Address', 'City', 'Latitude', 'Longitude'];
       const csvData = events.map(event => ({

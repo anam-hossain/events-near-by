@@ -1,4 +1,5 @@
 require('dotenv').config();
+const ngeohash = require('ngeohash');
 const EventService = require('./services/TicketMasterService');
 
 // Create an instance of EventService with your Ticketmaster API key from .env
@@ -13,10 +14,16 @@ const eventService = new EventService(process.env.TICKETMASTER_API_KEY);
 //   size: 10,
 // };
 
+// Search by Geo location
+// For example for sydney
+const latitude = -33.865143; // Example latitude value
+const longitude = 151.209900; // Example longitude value
+
+// Generate the geohash
+const hash = ngeohash.encode(latitude, longitude);
+
 const searchParams = {
-  countryCode: 'AU',
-  keyword: 'music',
-  city: 'Sydney',
+  geoPoint: hash,
   size: 10,
 };
 
